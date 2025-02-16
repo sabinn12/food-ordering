@@ -199,6 +199,10 @@
   font-size: 0.9rem; /* Reduced font size */
 }
 
+.slick-slider{
+  overflow: hidden;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .food-card {
@@ -345,7 +349,7 @@
   /* Scroll Animations */
 .animate-on-scroll {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
 }
 
 .animate-on-scroll.animate {
