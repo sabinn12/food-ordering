@@ -25,11 +25,11 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
       <div className="container">
         {/* Brand/Logo */}
         <Link to="/" className="navbar-brand">
-          <span className="fw-bold text-info">Food Ordering App</span>
+          <span className="fw-bold food">Food Ordering App</span>
         </Link>
 
         {/* Toggle Button for Mobile */}
