@@ -19,6 +19,23 @@
     
    }
   
+  .navbar a.active,
+.navbar .nav-link.active {
+  color: #f39c12 !important; /* Highlight color for active link */
+  position: relative;
+}
+
+.navbar a.active::after,
+.navbar .nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #f39c12; /* Underline color */
+}
+  
   /* Navbar Brand/Logo */
   .navbar-brand {
     font-size: 2rem; /* Increased font size for the brand */

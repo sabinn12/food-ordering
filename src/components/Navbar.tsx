@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa"; // Icons for the toggle button
+import { FaBars, FaTimes } from "react-icons/fa";
 import "../styles/navbar.css";
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to manage the mobile menu
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("home"); // Default to home
 
   // Mock user data (replace this with actual authentication logic later)
   const user = null; // No user logged in
@@ -21,8 +22,51 @@ const Navbar: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsOpen(false);
+      setActiveSection(id); // Set active section on click as well
     }
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+      
+      // Default to home if at top of page
+      if (window.scrollY < 100) {
+        setActiveSection("home");
+        return;
+      }
+      
+      let current = "";
+      
+      sections.forEach((section) => {
+        const sectionId = section.getAttribute("id") || "";
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        // Adjust the offset for better detection
+        if (window.scrollY >= sectionTop - 150 && 
+            window.scrollY < sectionTop + sectionHeight - 150) {
+          current = sectionId;
+        }
+      });
+      
+      if (current) {
+        setActiveSection(current);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    
+    // Initial call to set active section on mount
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Check if we're on the login page (this is just a placeholder - implement based on your routing)
+  const isLoginPage = window.location.pathname === "/login";
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
@@ -47,16 +91,20 @@ const Navbar: React.FC = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             {/* Home Link */}
             <li className="nav-item">
-              <Link to="/" className="nav-link" onClick={() => scrollToSection("home")}>
+              <a 
+                href="#home" 
+                className={`nav-link ${activeSection === "home" ? "active" : ""}`} 
+                onClick={() => scrollToSection("home")}
+              >
                 Home
-              </Link>
+              </a>
             </li>
 
             {/* About Link */}
             <li className="nav-item">
-              <a
-                href="#about"
-                className="nav-link"
+              <a 
+                href="#about" 
+                className={`nav-link ${activeSection === "about" ? "active" : ""}`} 
                 onClick={() => scrollToSection("about")}
               >
                 About
@@ -65,9 +113,9 @@ const Navbar: React.FC = () => {
 
             {/* Foods Link */}
             <li className="nav-item">
-              <a
-                href="#foods"
-                className="nav-link"
+              <a 
+                href="#foods" 
+                className={`nav-link ${activeSection === "foods" ? "active" : ""}`} 
                 onClick={() => scrollToSection("foods")}
               >
                 Foods
@@ -76,9 +124,9 @@ const Navbar: React.FC = () => {
 
             {/* Contact Link */}
             <li className="nav-item">
-              <a
-                href="#contact"
-                className="nav-link"
+              <a 
+                href="#contact" 
+                className={`nav-link ${activeSection === "contact" ? "active" : ""}`} 
                 onClick={() => scrollToSection("contact")}
               >
                 Contact
@@ -114,7 +162,7 @@ const Navbar: React.FC = () => {
                 <li className="nav-item">
                   <Link
                     to="/login"
-                    className="nav-link"
+                    className={`nav-link ${isLoginPage ? "active" : ""}`}
                     onClick={() => setIsOpen(false)}
                   >
                     Login
