@@ -84,6 +84,10 @@
     .nav-item {
       margin: 0.5rem 0;
     }
+    .navbar a {
+      display: inline-block; /* Contains the underline to text width */
+      padding: 0.5rem 0;
+  }
   }
   
   /* User Name Display */
