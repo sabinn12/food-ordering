@@ -11,6 +11,12 @@
     overflow: hidden;
     animation: fadeIn 1s ease-in-out;
   }
+  @media (max-width: 768px) {
+    .hero-section {
+      height: 55vh; /* Adjust height for smaller screens */
+      
+    }
+  }
   
   .hero-overlay {
     position: absolute;
@@ -39,12 +45,23 @@
     margin-bottom: 1rem;
     animation: slideInLeft 1s ease-in-out; /* Slide-in animation */
   }
+  @media (max-width: 768px) {
+    .hero-text h1 {
+      font-size: 2.2rem; /* Increased font size */
+      font-weight: 600;
+    }
+  }
   
   .hero-text .lead {
     font-size: 1.5rem; /* Increased font size */
     margin-bottom: 2rem;
     opacity: 0.9;
     animation: slideInLeft 1.2s ease-in-out; /* Slide-in animation */
+  }
+  @media (max-width: 768px) {
+    .hero-text .lead {
+      font-size: 1.2rem; /* Increased font size */
+    }
   }
   
   .hero-buttons {
@@ -60,7 +77,12 @@
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     animation: fadeIn 2s ease-in-out; /* Fade-in animation */
   }
-  
+  @media (max-width: 768px) {
+    .hero-buttons .btn {
+      padding: 1rem 1rem; /* Increased padding */
+      font-size: 0.9rem; /* Increased font size */
+    }
+  }
   .hero-buttons .btn-primary {
     background-color: #f39c12;
     border: none;
@@ -381,3 +403,4 @@
 .animate-on-scroll.fade-in.animate {
   transform: translateY(0);
 }
+
