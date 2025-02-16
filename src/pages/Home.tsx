@@ -2,16 +2,18 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/home.css"; // Import custom styles
 import { FaCheckCircle } from "react-icons/fa"; // Import social and check icons
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const Home: React.FC = () => {
   // Food data with Unsplash image URLs
   const foodImages = [
-    { id: 1, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Burger', price: '$8.99', description: 'A juicy beef burger with fresh vegetables and cheese.' },
+    { id: 1, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Burger', price: '$8.99', description: 'A juicy beef burger with fresh vegetables .' },
     { id: 2, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Pizza', price: '$12.99', description: 'Classic Italian pizza with a variety of toppings.' },
     { id: 3, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Pasta', price: '$10.99', description: 'Delicious pasta dishes with rich sauces.' },
     { id: 4, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Sushi', price: '$15.99', description: 'Fresh and authentic sushi rolls.' },
-    { id: 5, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Tacos', price: '$7.99', description: 'Spicy and flavorful Mexican tacos.' },
-    { id: 6, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Salad', price: '$6.99', description: 'Healthy and refreshing salads.' },
+    
   ];
 
   useEffect(() => {
@@ -33,6 +35,40 @@ const Home: React.FC = () => {
     };
     
   }, []);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
 
   return (
     <div className="home-page" id="home">
@@ -107,17 +143,17 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Foods Section */}
-      <section id="foods" className="foods-section animate-on-scroll">
+     {/* Foods Section */}
+     <section id="foods" className="foods-section animate-on-scroll">
         <div className="container">
           <h2>Our Foods</h2>
           <p className="section-description">
             Explore our wide range of delicious foods, from traditional dishes to
             modern cuisine.
           </p>
-          <div className="food-cards row">
+          <Slider {...settings}>
             {foodImages.map((food) => (
-              <div key={food.id} className="food-card col-sm-6 col-md-4 col-lg-3">
+              <div key={food.id} className="food-card">
                 <img
                   src={food.imageUrl}
                   alt={food.title}
@@ -131,15 +167,9 @@ const Home: React.FC = () => {
                 </Link>
               </div>
             ))}
-          </div>
-          <div className="text-center mt-4">
-            <Link to="/foods" className="btn btn-secondary">
-              View More
-            </Link>
-          </div>
+          </Slider>
         </div>
       </section>
-
       {/* Contact Section */}
       <section id="contact" className="contact-section animate-on-scroll">
         <div className="container">
