@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../styles/Home.css"; // Import custom styles
+import "../styles/home.css"; // Import custom styles
 import { FaCheckCircle } from "react-icons/fa"; // Import social and check icons
 
 const Home: React.FC = () => {
