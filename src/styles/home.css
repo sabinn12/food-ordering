@@ -198,10 +198,11 @@
   padding: 0.5rem 1rem; /* Reduced padding */
   font-size: 0.9rem; /* Reduced font size */
 }
-
-.slick-slider{
+#home {
   overflow: hidden;
 }
+
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
