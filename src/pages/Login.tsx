@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/login.css";
+import "../styles/Login.css";
 import { MdEmail, MdLock, MdVisibility, MdVisibilityOff, MdPerson } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
