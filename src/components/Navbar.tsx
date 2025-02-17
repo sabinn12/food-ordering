@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "../styles/navbar.css";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home"); // Default to home
+  const location = useLocation();
 
   // Mock user data (replace this with actual authentication logic later)
   const user = null; // No user logged in
@@ -65,8 +66,9 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
-  // Check if we're on the login page (this is just a placeholder - implement based on your routing)
-  const isLoginPage = window.location.pathname === "/login";
+  // Check if we're on the login page or other pages
+  const isLoginPage = location.pathname === "/login";
+  const isHomePage = location.pathname === "/";
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
@@ -91,46 +93,46 @@ const Navbar: React.FC = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             {/* Home Link */}
             <li className="nav-item">
-              <a 
-                href="#home" 
-                className={`nav-link ${activeSection === "home" ? "active" : ""}`} 
+              <Link 
+                to="/" 
+                className={`nav-link ${isHomePage && activeSection === "home" ? "active" : ""}`} 
                 onClick={() => scrollToSection("home")}
               >
                 Home
-              </a>
+              </Link>
             </li>
 
             {/* About Link */}
             <li className="nav-item">
-              <a 
-                href="#about" 
-                className={`nav-link ${activeSection === "about" ? "active" : ""}`} 
+              <Link 
+                to="/" 
+                className={`nav-link ${isHomePage && activeSection === "about" ? "active" : ""}`} 
                 onClick={() => scrollToSection("about")}
               >
                 About
-              </a>
+              </Link>
             </li>
 
             {/* Foods Link */}
             <li className="nav-item">
-              <a 
-                href="#foods" 
-                className={`nav-link ${activeSection === "foods" ? "active" : ""}`} 
+              <Link 
+                to="/" 
+                className={`nav-link ${isHomePage && activeSection === "foods" ? "active" : ""}`} 
                 onClick={() => scrollToSection("foods")}
               >
                 Foods
-              </a>
+              </Link>
             </li>
 
             {/* Contact Link */}
             <li className="nav-item">
-              <a 
-                href="#contact" 
-                className={`nav-link ${activeSection === "contact" ? "active" : ""}`} 
+              <Link 
+                to="/" 
+                className={`nav-link ${isHomePage && activeSection === "contact" ? "active" : ""}`} 
                 onClick={() => scrollToSection("contact")}
               >
                 Contact
-              </a>
+              </Link>
             </li>
 
             {/* Conditional Links Based on User Authentication */}

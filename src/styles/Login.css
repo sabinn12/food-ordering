@@ -1,0 +1,429 @@
+/* Base styles for the login container - now more compact */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 1rem;
+    background-color: #dce8f4;
+  }
+  
+  .login-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1500px; /* Reduced from 1200px */
+    min-height: 600px; /* Reduced from 600px */
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Image section styles */
+  .login-image-section {
+    flex: 0.9; /* Slightly smaller than form section */
+    background: linear-gradient(135deg, #111112, #e9ecef);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .login-image-section img {
+    width: 100%;
+    max-width: 320px; /* Reduced from 400px */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+  }
+  
+  .login-image-section img:hover {
+    transform: scale(1.02);
+  }
+  
+  .welcome-heading {
+    margin-top: 1.5rem; /* Reduced from 2rem */
+    color: #333;
+    font-size: 1.5rem; /* Reduced from 1.8rem */
+    font-weight: 600;
+  }
+  
+  .welcome-text {
+    color: #666;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Form section styles */
+  .login-form-section {
+    flex: 1.1; /* Slightly larger than image section */
+    padding: 1rem; /* Reduced from 2rem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 380px; /* Reduced from 450px */
+    padding: 1.5rem 1rem; /* Reduced from 2rem 1.5rem */
+  }
+  
+  .form-title {
+    font-size: 1.8rem; /* Reduced from 2.2rem */
+    color: #333;
+    margin-bottom: 0.4rem; /* Reduced from 0.5rem */
+    font-weight: 700;
+  }
+  
+  .form-subtitle {
+    color: #6c757d;
+    margin-bottom: 1.5rem; /* Reduced from 2rem */
+    font-size: 0.9rem;
+  }
+  
+  /* Input styles */
+  .form-group {
+    margin-bottom: 1.2rem; /* Reduced from 1.5rem */
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.4rem; /* Reduced from 0.5rem */
+    color: #495057;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+ /* Input styles with improved alignment */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #adb5bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    height: 18px;
+  }
+  
+  .form-control {
+    width: 100%;
+    height: 42px; 
+    padding-left: 10px; 
+    text-indent: 20px; 
+    font-size: 0.95rem;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    transition: all 0.3s;
+    
+  }
+ 
+  
+  .password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #adb5bd;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 1;
+    height: 18px; 
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #5A7AF1;
+    box-shadow: 0 0 0 2px rgba(90, 122, 241, 0.2);
+  }
+  
+  
+  
+  /* Form options */
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem; 
+    font-size: 0.85rem; 
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+  
+  .remember-me input {
+    margin-right: 6px; 
+  }
+  
+  .forgot-password {
+    color: #5A7AF1;
+    text-decoration: none;
+    font-size: 0.85rem; 
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  /* Terms and conditions checkbox */
+  .form-terms {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.2rem; 
+    font-size: 0.85rem;
+  }
+  
+  .form-terms input {
+    margin-right: 6px; 
+    margin-top: 3px; 
+  }
+  
+  .form-terms label {
+    font-size: 0.85rem; 
+    color: #6c757d;
+  }
+  
+  .form-terms a {
+    color: #5A7AF1;
+    text-decoration: none;
+  }
+  
+  .form-terms a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Button styles */
+  .btn {
+    padding: 10px 20px; 
+    font-size: 0.95rem; 
+    border: none;
+    border-radius: 6px; 
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .btn-primary {
+    background-color: #5A7AF1;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #4a67d6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(90, 122, 241, 0.25);
+  }
+  
+  .btn-block {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Social login section */
+  .social-login {
+    margin-top: 1.5rem; 
+    text-align: center;
+  }
+  
+  .social-login p {
+    color: #6c757d;
+    margin-bottom: 0.8rem; 
+    position: relative;
+    font-size: 0.85rem;
+  }
+  
+  .social-login p::before,
+  .social-login p::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background-color: #dee2e6;
+  }
+  
+  .social-login p::before {
+    left: 0;
+  }
+  
+  .social-login p::after {
+    right: 0;
+  }
+  
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem; 
+  }
+  
+  .social-btn {
+    width: 36px; 
+    height: 36px; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  .google {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    color: #757575;
+  }
+  
+  .facebook {
+    background-color: #4267B2;
+  }
+  
+  .twitter {
+    background-color: #1DA1F2;
+  }
+  
+  /* Switch between login and signup */
+  .form-switch {
+    text-align: center;
+    margin-top: 1.5rem; 
+    color: #6c757d;
+    font-size: 0.85rem;
+  }
+  
+  .switch-btn {
+    background: none;
+    border: none;
+    color: #5A7AF1;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  
+  .switch-btn:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive styles - adjusted for more compact layout */
+  @media (max-width: 992px) {
+    .login-wrapper {
+      flex-direction: column;
+      min-height: auto;
+      max-width: 480px; 
+    }
+  
+    .login-image-section {
+      padding: 1.5rem 1.5rem 0.5rem;
+    }
+  
+    .login-image-section img {
+      max-width: 240px; 
+    }
+  
+    .welcome-heading {
+      font-size: 1.3rem;
+      margin-top: 0.8rem;
+    }
+  
+    .welcome-text {
+      font-size: 0.85rem;
+    }
+  
+    .form-container {
+      padding: 0.8rem 1rem 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 0.8rem;
+    }
+  
+    .login-wrapper {
+      max-width: 400px; 
+    }
+  
+    .login-image-section {
+      padding: 1.2rem 1.2rem 0.3rem;
+    }
+  
+    .login-image-section img {
+      max-width: 200px;
+    }
+  
+    .welcome-heading {
+      font-size: 1.1rem;
+      margin-top: 0.6rem;
+    }
+  
+    .welcome-text {
+      font-size: 0.8rem;
+    }
+  
+    .form-title {
+      font-size: 1.5rem;
+    }
+  
+    .form-subtitle {
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .login-wrapper {
+      border-radius: 10px;
+      max-width: 100%;
+    }
+  
+    .login-image-section {
+      display: none; 
+    }
+  
+    .form-container {
+      padding: 1.2rem 0.8rem;
+    }
+  
+    .form-title {
+      font-size: 1.4rem;
+      text-align: center;
+    }
+  
+    .form-subtitle {
+      text-align: center;
+    }
+  
+    .form-options {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    .social-buttons {
+      flex-direction: row;
+    }
+  }

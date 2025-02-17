@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../styles/home.css"; // Import custom styles
-import { FaCheckCircle } from "react-icons/fa"; // Import social and check icons
+import "../styles/home.css";
+
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { FaCheckCircle, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const Home: React.FC = () => {
   // Food data with Unsplash image URLs
@@ -170,49 +171,118 @@ const Home: React.FC = () => {
           </Slider>
         </div>
       </section>
-      {/* Contact Section */}
-      <section id="contact" className="contact-section animate-on-scroll">
-        <div className="container">
-          <h2>Contact Us</h2>
-          <p className="section-description">
-            Have questions? Feel free to reach out to us. We're here to help!
-          </p>
-          <div className="contact-content">
-            <div className="contact-form-container">
-              <form className="contact-form">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    required
-                    className="form-control"
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    required
-                    className="form-control"
-                  />
-                </div>
-                <div className="form-group">
-                  <textarea
-                    placeholder="Your Message"
-                    rows={5}
-                    required
-                    className="form-control"
-                  ></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary">
-                  Send Message
-                </button>
-              </form>
+   {/* Contact Section */}
+<section id="contact" className="contact-section animate-on-scroll">
+  <div className="container">
+    <h2>Contact Us</h2>
+    <p className="section-description">
+      Have questions? Feel free to reach out to us. We're here to help!
+    </p>
+    <div className="row contact-row">
+      {/* Contact Information Side */}
+      <div className="col-md-5">
+        <div className="contact-info-card">
+          <h3>Get in Touch</h3>
+          
+          <div className="contact-item">
+            <div className="contact-icon">
+              <FaEnvelope />
             </div>
-           
+            <div className="contact-details">
+              
+              <p>support@foodorderingapp.com</p>
+              <p>info@foodorderingapp.com</p>
+            </div>
+          </div>
+          
+          <div className="contact-item">
+            <div className="contact-icon ">
+              <FaMapMarkerAlt />
+            </div>
+            <div className="contact-details">
+              
+              <p>123 Food Street, Cuisine District</p>
+              <p>New York, NY 10001</p>
+            </div>
+            
+          </div>
+          
+          <div className="contact-item">
+            <div className="contact-icon">
+              <FaPhoneAlt />
+            </div>
+            <div className="contact-details">
+              
+              <p>+1 (555) 123-4567</p>
+              <p>+1 (555) 987-6543</p>
+            </div>
+          </div>
+          
+          <div className="social-links">
+            <a href="#" aria-label="Facebook"><FaFacebookF /></a>
+            <a href="#" aria-label="Twitter"><FaTwitter /></a>
+            <a href="#" aria-label="Instagram"><FaInstagram /></a>
+            <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
           </div>
         </div>
-      </section>
+      </div>
+      
+      {/* Contact Form Side */}
+      <div className="col-md-7">
+        <form className="contact-form">
+          <div className="row"> 
+            <div className="col-md-6 form-group">
+              <label htmlFor="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="John Doe"
+                required
+                className="form-control"
+              />
+            </div>
+            <div className="col-md-6 form-group">
+              <label htmlFor="email">Your Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="johndoe@example.com"
+                required
+                className="form-control"
+              />
+            </div>
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              placeholder="How can we help you?"
+              required
+              className="form-control"
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="message">Your Message</label>
+            <textarea
+              id="message"
+              placeholder="Write your message here..."
+              rows={5}
+              required
+              className="form-control"
+            ></textarea>
+          </div>
+          
+          <button type="submit" className="btn btn-primary btn-block">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   );
 };

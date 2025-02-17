@@ -239,9 +239,9 @@
   }
 }
   
- /* Contact Section */
+/* Contact Section - Enhanced with Fixed Layout */
 .contact-section {
-  padding: 4rem 0;
+  padding: 5rem 0;
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
   text-align: center;
 }
@@ -254,50 +254,149 @@
 
 .contact-section .section-description {
   font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto 2rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
   color: #666;
 }
 
-.contact-content {
+.contact-row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  max-width: 800px;
+  flex-wrap: wrap;
+  max-width: 1400px;
   margin: 0 auto;
 }
-
-.contact-form-container {
-  width: 100%;
-  max-width: 500px;
+@media (max-width: 768px) {
+  .contact-row {
+    gap: 0.8rem;
+    
+  }
 }
 
+/* Contact Information Side */
+.contact-info-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  height: 100%;
+  transition: transform 0.3s ease;
+  
+}
+
+.contact-info-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-info-card h3 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  color: #f39c12;
+  font-weight: 600;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.75rem;
+}
+
+.contact-icon {
+  background: #fff !important;
+  color: #f39c12 !important; 
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.contact-icon i {
+  color: #f39c12;
+  font-size: 1.25rem;
+}
+
+.contact-details h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+.contact-details p {
+  color: #666;
+  margin-bottom: 0.2rem;
+  font-size: 0.95rem;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #f8f9fa;
+  border-radius: 50%;
+  color: #333;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: #f39c12;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Contact Form Side */
 .contact-form {
   background: #fff;
-  padding: 2rem;
+  padding: 3rem;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  
+  height: 100%;
 }
 
 .form-group {
   margin-bottom: 1.5rem;
-  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95rem;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.85rem;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: #f39c12;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
   outline: none;
 }
 
@@ -308,7 +407,7 @@
 
 .contact-form .btn-primary {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.95rem;
   font-size: 1.1rem;
   font-weight: 500;
   background-color: #f39c12;
@@ -316,27 +415,28 @@
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .contact-form .btn-primary:hover {
   background-color: #e67e22;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
 }
 
-.social-links {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+.contact-form .form-control#message {
+  height: 150px; 
 }
 
-.social-links a {
-  color: #333;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
-}
 
-.social-links a:hover {
-  color: #f39c12;
+/* Fixed responsive adjustments */
+@media (max-width: 768px) {
+  .contact-info-card,
+  .contact-form {
+    margin-bottom: 2rem;
+  }
 }
   /* Animations */
   @keyframes fadeIn {
