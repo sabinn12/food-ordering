@@ -191,7 +191,7 @@ const Home: React.FC = () => {
             <div className="contact-details">
               
               <p>support@foodorderingapp.com</p>
-              <p>info@foodorderingapp.com</p>
+              <p>support@foodorderingapp.com</p>
             </div>
           </div>
           
@@ -201,8 +201,8 @@ const Home: React.FC = () => {
             </div>
             <div className="contact-details">
               
-              <p>123 Food Street, Cuisine District</p>
-              <p>New York, NY 10001</p>
+              <p>KN 37 ST Kicukiro District</p>
+              <p>Kigali Rwanda</p>
             </div>
             
           </div>
@@ -213,8 +213,8 @@ const Home: React.FC = () => {
             </div>
             <div className="contact-details">
               
-              <p>+1 (555) 123-4567</p>
-              <p>+1 (555) 987-6543</p>
+              <p>+250 787199684</p>
+              <p>+250 787199684</p>
             </div>
           </div>
           
@@ -236,7 +236,6 @@ const Home: React.FC = () => {
               <input
                 type="text"
                 id="name"
-                placeholder="John Doe"
                 required
                 className="form-control"
               />
@@ -246,7 +245,6 @@ const Home: React.FC = () => {
               <input
                 type="email"
                 id="email"
-                placeholder="johndoe@example.com"
                 required
                 className="form-control"
               />
@@ -258,7 +256,6 @@ const Home: React.FC = () => {
             <input
               type="text"
               id="subject"
-              placeholder="How can we help you?"
               required
               className="form-control"
             />
@@ -268,7 +265,6 @@ const Home: React.FC = () => {
             <label htmlFor="message">Your Message</label>
             <textarea
               id="message"
-              placeholder="Write your message here..."
               rows={5}
               required
               className="form-control"
