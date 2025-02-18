@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bell, Home, Package, Calendar, User, Settings, LogOut, Search, Filter, ChevronDown, Menu, X } from 'lucide-react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/dashboard.css';
+
+import '../styles/Dashboard.css';
 
 // TypeScript interface for Order
 interface Order {
