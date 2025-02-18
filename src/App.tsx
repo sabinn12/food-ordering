@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Dashboard from "./pages/Dashboard";
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
+  const location = useLocation();
+  const hideNavbarAndFooter = location.pathname.startsWith("/dashboard"); // Hide for dashboard routes
+
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector(".navbar");
@@ -24,17 +27,26 @@ const App: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
-    <Router>
-      <Navbar />
+    <>
+      {!hideNavbarAndFooter && <Navbar />}
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </main>
-      <Footer />
+      {!hideNavbarAndFooter && <Footer />}
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 };
