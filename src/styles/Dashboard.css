@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-* {
-  overflow: hidden;
-}
 
 a {
   text-decoration: none;
@@ -54,7 +51,7 @@ body {
   background: var(--light);
   z-index: 2000;
   transition: width 0.3s ease;
-  border-radius: 30px;
+  
 }
 
 #sidebar.hidden {
