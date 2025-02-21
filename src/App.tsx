@@ -12,7 +12,7 @@ import ClientDashboard from "./pages/clientDashboard";
 
 const AppContent: React.FC = () => {
   const location = useLocation();
-  const hideNavbarAndFooter = location.pathname.startsWith("/dashboard") || location.pathname.startsWith("/usersDashboard") || location.pathname.startsWith("/orderDashboard") || location.pathname.startsWith("/clientDashboard");
+  const hideNavbarAndFooter = location.pathname.startsWith("/dashboard") || location.pathname.startsWith("/usersDashboard") || location.pathname.startsWith("/orderDashboard") || location.pathname.startsWith("/clientDashboard") || location.pathname.startsWith("/login");
 
   useEffect(() => {
     const handleScroll = () => {

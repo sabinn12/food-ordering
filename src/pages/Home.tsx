@@ -1,20 +1,32 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "../styles/home.css";
-
+import { Modal, Button, Form } from 'react-bootstrap';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FaCheckCircle, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
+interface FoodItem {
+  id: number;
+  imageUrl: string;
+  title: string;
+  price: string;
+  description: string;
+}
+
 const Home: React.FC = () => {
-  // Food data with Unsplash image URLs
-  const foodImages = [
+  const [showOrderModal, setShowOrderModal] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [selectedFood, setSelectedFood] = useState<FoodItem | null>(null);
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [quantity, setQuantity] = useState(0); // Initialize quantity with a default value
+
+  const foodImages: FoodItem[] = [
     { id: 1, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Burger', price: '$8.99', description: 'A juicy beef burger with fresh vegetables .' },
     { id: 2, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Pizza', price: '$12.99', description: 'Classic Italian pizza with a variety of toppings.' },
     { id: 3, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Pasta', price: '$10.99', description: 'Delicious pasta dishes with rich sauces.' },
     { id: 4, imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Sushi', price: '$15.99', description: 'Fresh and authentic sushi rolls.' },
-    
   ];
 
   useEffect(() => {
@@ -36,6 +48,23 @@ const Home: React.FC = () => {
     };
     
   }, []);
+
+  const handleOrderNow = (food: FoodItem) => {
+    setSelectedFood(food);
+    setShowOrderModal(true);
+  };
+
+  const handleConfirmOrder = () => {
+    setShowOrderModal(false);
+    setShowConfirmModal(true);
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const settings = {
     dots: true,
@@ -86,12 +115,12 @@ const Home: React.FC = () => {
                     doorstep in no time! Enjoy a wide variety of cuisines from the best restaurants in town.
                   </p>
                   <div className="hero-buttons">
-                    <Link to="/foods" className="btn btn-primary">
+                    <button className="btn btn-primary" onClick={() => scrollToSection("foods")}>
                       Order Now
-                    </Link>
-                    <Link to="/contact" className="btn btn-secondary">
+                    </button>
+                    <button className="btn btn-secondary" onClick={() => scrollToSection("contact")}>
                       Contact Us
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -163,14 +192,65 @@ const Home: React.FC = () => {
                 <h3>{food.title}</h3>
                 <p className="food-price">{food.price}</p>
                 <p>{food.description}</p>
-                <Link to="/order" className="btn btn-primary">
+                <Button className="btn btn-primary" onClick={() => handleOrderNow(food)}>
                   Order Now
-                </Link>
+                </Button>
               </div>
             ))}
           </Slider>
         </div>
       </section>
+
+      {/* Order Modal */}
+      <Modal show={showOrderModal} onHide={() => setShowOrderModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Order {selectedFood?.title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <img src={selectedFood?.imageUrl} alt={selectedFood?.title} className="img-fluid rounded mb-3" />
+          <p>{selectedFood?.description}</p>
+          <p className="food-price">{selectedFood?.price}</p>
+          <Form>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email"  value={email} onChange={(e) => setEmail(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formPhone">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control type="phone"  value={phone} onChange={(e) => setPhone(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formQuantity">
+              <Form.Label>Quantity</Form.Label>
+              <Form.Control type="number"  value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} />    
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowOrderModal(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleConfirmOrder}>
+            Confirm Order
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Confirmation Modal */}
+      <Modal show={showConfirmModal} onHide={() => setShowConfirmModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Order Confirmation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Your order for {selectedFood?.title} has been placed successfully!</p>
+          <p>We will contact you at {email} or {phone} for further details.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => setShowConfirmModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
    {/* Contact Section */}
 <section id="contact" className="contact-section animate-on-scroll">
   <div className="container">

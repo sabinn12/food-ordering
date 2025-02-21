@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "../styles/Login.css";
 import { MdEmail, MdLock, MdVisibility, MdVisibilityOff, MdPerson } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
@@ -8,6 +8,7 @@ import { FaFacebookF, FaTwitter } from "react-icons/fa";
 const Login: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
@@ -16,6 +17,8 @@ const Login: React.FC = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+ 
 
   return (
     <div className="login-container">
@@ -110,6 +113,9 @@ const Login: React.FC = () => {
                     Sign up
                   </button>
                 </p>
+                <Link to="/" className="btn btn-secondary btn-block" >
+                  Return to Home
+                </Link>
               </div>
             ) : (
               <div className="signup-form">
@@ -218,6 +224,9 @@ const Login: React.FC = () => {
                     Login
                   </button>
                 </p>
+                <Link to="/" className="btn btn-secondary btn-block" >
+                  Return to Home
+                </Link>
               </div>
             )}
           </div>
