@@ -392,6 +392,22 @@ body {
     position: absolute;
     top: 16px;
     float: right;
+    justify-content: flex-end !important;
     z-index: 3000;
+  }
+  @media (max-width: 768px)  {
+    .close-icon {
+      display: flex !important;
+      justify-content: flex-end !important;
+      height: 40px;
+      width: 40px;
+      bottom: 100%;
+    }
+  }
+  @media (max-width: 768px) {
+    .menu-icon {
+      width: 90px;
+      height: 24px;
+    }
   }
   

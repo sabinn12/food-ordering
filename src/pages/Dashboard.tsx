@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { Modal, Button, Form, Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Dashboard.css';
@@ -56,12 +57,13 @@ const Dashboard: React.FC = () => {
           <User size={24} />
           <span className="text ">Irakiza Sabin</span>
         </a>
+        
         <ul className="side-menu top ">
           <li>
-            <a href="#" className="gap-2">
-              <Users size={20} />
-              <span className="text">Users</span>
-            </a>
+          <Link to="/usersDashboard" className="gap-2">
+          <Users size={20} />
+         <span className="text">Users</span>
+          </Link>
           </li>
           <li className="active">
             <a href="#" className="gap-2">
@@ -70,10 +72,10 @@ const Dashboard: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="#" className='gap-2'>
+            <Link to="/orderDashboard" className='gap-2'>
               <History size={20} />
               <span className="text">Order History</span>
-            </a>
+            </Link>
           </li>
         </ul>
         <ul className="side-menu">
@@ -96,7 +98,7 @@ const Dashboard: React.FC = () => {
       >
         {/* NAVBAR */}
         <nav>
-          <Menu size={24} onClick={toggleSidebar} style={{ cursor: 'pointer' }} />
+          <Menu className='menu-icon' size={24} onClick={toggleSidebar} style={{ cursor: 'pointer' }} />
           <a href="#" className="nav-link text-secondary">Welcome Back</a>
           <form action="#">
             <div className="form-input text-warning">
@@ -149,16 +151,18 @@ const Dashboard: React.FC = () => {
               <tbody>
                 <tr>
                   <td>Food</td>
-                  <td>Best Food</td>
+                  <td>Best Food
+
+                  </td>
                   <td>
                    18$
                   </td>
                   <td>
                     <Button variant="primary" size="sm" className="me-2" onClick={handleShowEditModal}>
-                      <Edit size={16} /> {/* Edit Icon */}
+                      <Edit size={12} /> {/* Edit Icon */}
                     </Button>
                     <Button variant="danger" size="sm" onClick={handleShowDeleteModal}>
-                      <Trash2 size={16} /> {/* Delete Icon */}
+                      <Trash2 size={12} /> {/* Delete Icon */}
                     </Button>
                   </td>
                 </tr>

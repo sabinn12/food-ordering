@@ -5,10 +5,14 @@ import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
+import UsersDashboard from "./pages/usersDashboard";
+import OrderDashboard from "./pages/orderDashboard";
+import ClientDashboard from "./pages/clientDashboard";
+
 
 const AppContent: React.FC = () => {
   const location = useLocation();
-  const hideNavbarAndFooter = location.pathname.startsWith("/dashboard"); // Hide for dashboard routes
+  const hideNavbarAndFooter = location.pathname.startsWith("/dashboard") || location.pathname.startsWith("/usersDashboard") || location.pathname.startsWith("/orderDashboard") || location.pathname.startsWith("/clientDashboard");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +40,9 @@ const AppContent: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/usersDashboard" element={<UsersDashboard />} />
+          <Route path="/orderDashboard" element={<OrderDashboard />} />
+          <Route path="/clientDashboard" element={<ClientDashboard />} />
         </Routes>
       </main>
       {!hideNavbarAndFooter && <Footer />}
